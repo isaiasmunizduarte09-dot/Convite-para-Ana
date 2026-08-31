@@ -131,29 +131,29 @@
 
     <script>
         function fuga(e) {
-            if (e) e.preventDefault();
-            const btnNao = document.getElementById('btnNao');
-            
-            // Largura e altura do botão
-            const btnWidth = btnNao.offsetWidth || 80;
-            const btnHeight = btnNao.offsetHeight || 40;
-            
-            // Margem de segurança das bordas da tela
-            const padding = 30;
-            
-            // Área máxima disponível
-            const maxX = window.innerWidth - btnWidth - padding;
-            const maxY = window.innerHeight - btnHeight - padding;
-            
-            // Gera posições válidas dentro da janela do navegador
-            let randomX = Math.floor(Math.random() * (maxX - padding)) + padding;
-            let randomY = Math.floor(Math.random() * (maxY - padding)) + padding;
-            
-            // Garante que o botão fique sempre visível acima de tudo
-            btnNao.style.position = 'fixed';
-            btnNao.style.left = randomX + 'px';
-            btnNao.style.top = randomY + 'px';
-        }
+    if (e) e.preventDefault();
+    const btnNao = document.getElementById('btnNao');
+    
+    // Dimensões do botão e da janela
+    const btnWidth = btnNao.offsetWidth || 80;
+    const btnHeight = btnNao.offsetHeight || 40;
+    
+    // Margem das bordas para o botão não colar no canto
+    const margin = 20; 
+
+    // Calcula os limites máximos onde o botão pode ir
+    const maxX = window.innerWidth - btnWidth - margin;
+    const maxY = window.innerHeight - btnHeight - margin;
+
+    // Gera coordenadas aleatórias garantindo que fiquem dentro do limite visível
+    const randomX = Math.max(margin, Math.floor(Math.random() * maxX));
+    const randomY = Math.max(margin, Math.floor(Math.random() * maxY));
+    
+    // Aplica a nova posição fixa na tela
+    btnNao.style.position = 'fixed';
+    btnNao.style.left = `${randomX}px`;
+    btnNao.style.top = `${randomY}px`;
+}
 
         function aceitou() {
             const numero = "5597984275515";
