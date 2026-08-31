@@ -129,17 +129,33 @@
         </div>
     </div>
 
-    <script>
-       function fuga() {
-            const btnNao = document.getElementById('btnNao');
-            // Move o botão "Não" para uma posição aleatória na tela, fugindo do clique
-            const x = Math.random() * (window.innerWidth - btnNao.offsetWidth - 50);
-            const y = Math.random() * (window.innerHeight - btnNao.offsetHeight - 50);
-            
-            btnNao.style.position = 'fixed';
-            btnNao.style.left = x + 'px';
-            btnNao.style.top = y + 'px';
-        }
+   <script>
+    function fuga() {
+        const btnNao = document.getElementById('btnNao');
+        
+        // Define margens de segurança para o botão não sumir nos cantos da tela
+        const padding = 20;
+        
+        // Calcula a largura e altura máxima onde o botão pode aparecer
+        const maxX = window.innerWidth - btnNao.offsetWidth - padding;
+        const maxY = window.innerHeight - btnNao.offsetHeight - padding;
+        
+        // Garante que os valores mínimos fiquem dentro da tela (pelo menos na posição 'padding')
+        const x = Math.max(padding, Math.floor(Math.random() * maxX));
+        const y = Math.max(padding, Math.floor(Math.random() * maxY));
+        
+        // Aplica o posicionamento fixo
+        btnNao.style.position = 'fixed';
+        btnNao.style.left = `${x}px`;
+        btnNao.style.top = `${y}px`;
+    }
+
+    function aceitou() {
+        const numero = "5597984275515"; // DDD 97 + número com DDI 55 do Brasil
+        const mensagem = encodeURIComponent("Eu aceito!🥰");
+        window.location.href = `https://wa.me/${numero}?text=${mensagem}`;
+    }
+</script>
 
     // Aplica o posicionamento fixo para não afetar o layout dos outros elementos
     btnNao.style.position = 'fixed';
