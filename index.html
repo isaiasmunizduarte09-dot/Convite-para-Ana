@@ -117,7 +117,7 @@
         <h1>Para a futura enfermeira mais linda...😘❤️</h1>
         <p>Eu sei que a barra está pesada demais agora, com tantos problemas acumulados, essa questão da família, 
             da justiça e da polícia te esgotando a esse ponto de querer sumir. Mas eu tô aqui com você pra te lembrar que você não precisa carregar o mundo sozinha. Respira fundo, confia em Deus, e conte comigo pra tudo.</p>
-        <p>Depois de sobreviver à correria e para comemorar os nossos novos cursos, eu queria te fazer um convite...</p>
+        <p>Depois de sobreviver à correria e para comemorar os nossos novos cursos, eu queria te fazer um convite...👀</p>
         
         <div class="highlight">
             <strong>Topa comigo um dia? Vai eu, você e o Ravi.🧺🍎</strong>
@@ -129,31 +129,45 @@
         </div>
     </div>
 
-    <script>
-        function fuga(e) {
-    if (e) e.preventDefault();
-    const btnNao = document.getElementById('btnNao');
-    
-    // Dimensões do botão e da janela
-    const btnWidth = btnNao.offsetWidth || 80;
-    const btnHeight = btnNao.offsetHeight || 40;
-    
-    // Margem das bordas para o botão não colar no canto
-    const margin = 20; 
+       <script>
+    function fuga(e) {
+        if (e) e.preventDefault();
+        const btnNao = document.getElementById('btnNao');
+        
+        // Garante o estilo correto de posicionamento
+        btnNao.style.position = 'fixed';
+        btnNao.style.margin = '0';
+        
+        // Medidas do botão
+        const btnWidth = btnNao.offsetWidth || 80;
+        const btnHeight = btnNao.offsetHeight || 40;
+        
+        // Margem de segurança para não colar no limite da tela
+        const padding = 15;
+        
+        // Usa a área visível real da tela (viewport)
+        const viewportWidth = document.documentElement.clientWidth;
+        const viewportHeight = document.documentElement.clientHeight;
+        
+        // Limite máximo de deslocamento (X e Y)
+        const maxX = viewportWidth - btnWidth - padding;
+        const maxY = viewportHeight - btnHeight - padding;
+        
+        // Gera posições aleatórias estritamente dentro dos limites visíveis
+        const randomX = Math.min(Math.max(padding, Math.floor(Math.random() * maxX)), maxX);
+        const randomY = Math.min(Math.max(padding, Math.floor(Math.random() * maxY)), maxY);
+        
+        // Aplica as posições exatas
+        btnNao.style.left = randomX + 'px';
+        btnNao.style.top = randomY + 'px';
+    }
 
-    // Calcula os limites máximos onde o botão pode ir
-    const maxX = window.innerWidth - btnWidth - margin;
-    const maxY = window.innerHeight - btnHeight - margin;
-
-    // Gera coordenadas aleatórias garantindo que fiquem dentro do limite visível
-    const randomX = Math.max(margin, Math.floor(Math.random() * maxX));
-    const randomY = Math.max(margin, Math.floor(Math.random() * maxY));
-    
-    // Aplica a nova posição fixa na tela
-    btnNao.style.position = 'fixed';
-    btnNao.style.left = `${randomX}px`;
-    btnNao.style.top = `${randomY}px`;
-}
+    function aceitou() {
+        const numero = "5597984275515";
+        const mensagem = encodeURIComponent("Eu aceito!🥰");
+        window.location.href = `https://wa.me/${numero}?text=${mensagem}`;
+    }
+</script>
 
         function aceitou() {
             const numero = "5597984275515";
