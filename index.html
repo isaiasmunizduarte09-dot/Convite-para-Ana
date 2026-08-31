@@ -87,7 +87,7 @@
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             outline: none;
         }
 
@@ -105,7 +105,6 @@
         #btnNao {
             background-color: #f0f0f0;
             color: #777;
-            transition: top 0.25s ease, left 0.25s ease;
             z-index: 9999;
         }
     </style>
@@ -117,7 +116,7 @@
         <h1>Para a futura enfermeira mais linda...😘❤️</h1>
         <p>Eu sei que a barra está pesada demais agora, com tantos problemas acumulados, essa questão da família, 
             da justiça e da polícia te esgotando a esse ponto de querer sumir. Mas eu tô aqui com você pra te lembrar que você não precisa carregar o mundo sozinha. Respira fundo, confia em Deus, e conte comigo pra tudo.</p>
-        <p>Depois de sobreviver à correria e para comemorar os nossos novos cursos, eu queria te fazer um convite...👀</p>
+        <p>Depois de sobreviver à correria e para comemorar os nossos novos cursos, eu queria te fazer um convite...</p>
         
         <div class="highlight">
             <strong>Topa comigo um dia? Vai eu, você e o Ravi.🧺🍎</strong>
@@ -129,45 +128,30 @@
         </div>
     </div>
 
-       <script>
-    function fuga(e) {
-        if (e) e.preventDefault();
-        const btnNao = document.getElementById('btnNao');
-        
-        // Garante o estilo correto de posicionamento
-        btnNao.style.position = 'fixed';
-        btnNao.style.margin = '0';
-        
-        // Medidas do botão
-        const btnWidth = btnNao.offsetWidth || 80;
-        const btnHeight = btnNao.offsetHeight || 40;
-        
-        // Margem de segurança para não colar no limite da tela
-        const padding = 15;
-        
-        // Usa a área visível real da tela (viewport)
-        const viewportWidth = document.documentElement.clientWidth;
-        const viewportHeight = document.documentElement.clientHeight;
-        
-        // Limite máximo de deslocamento (X e Y)
-        const maxX = viewportWidth - btnWidth - padding;
-        const maxY = viewportHeight - btnHeight - padding;
-        
-        // Gera posições aleatórias estritamente dentro dos limites visíveis
-        const randomX = Math.min(Math.max(padding, Math.floor(Math.random() * maxX)), maxX);
-        const randomY = Math.min(Math.max(padding, Math.floor(Math.random() * maxY)), maxY);
-        
-        // Aplica as posições exatas
-        btnNao.style.left = randomX + 'px';
-        btnNao.style.top = randomY + 'px';
-    }
-
-    function aceitou() {
-        const numero = "5597984275515";
-        const mensagem = encodeURIComponent("Eu aceito!🥰");
-        window.location.href = `https://wa.me/${numero}?text=${mensagem}`;
-    }
-</script>
+    <script>
+        function fuga(e) {
+            if (e) e.preventDefault();
+            const btnNao = document.getElementById('btnNao');
+            
+            btnNao.style.position = 'fixed';
+            btnNao.style.margin = '0';
+            
+            const btnWidth = btnNao.offsetWidth || 80;
+            const btnHeight = btnNao.offsetHeight || 40;
+            const padding = 20;
+            
+            const viewportWidth = document.documentElement.clientWidth;
+            const viewportHeight = document.documentElement.clientHeight;
+            
+            const maxX = viewportWidth - btnWidth - padding;
+            const maxY = viewportHeight - btnHeight - padding;
+            
+            const randomX = Math.min(Math.max(padding, Math.floor(Math.random() * maxX)), maxX);
+            const randomY = Math.min(Math.max(padding, Math.floor(Math.random() * maxY)), maxY);
+            
+            btnNao.style.left = randomX + 'px';
+            btnNao.style.top = randomY + 'px';
+        }
 
         function aceitou() {
             const numero = "5597984275515";
