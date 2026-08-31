@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Convite Especial ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: #4a4a4a;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(255, 71, 126, 0.2);
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #ff477e;
+            font-size: 22px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .highlight {
+            background-color: #ffe5ec;
+            color: #ff477e;
+            padding: 10px 15px;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            min-height: 50px;
+            position: relative;
+        }
+
+        button {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        #btnSim {
+            background: linear-gradient(45deg, #ff477e, #ff70a6);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+        }
+
+        #btnSim:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(255, 71, 126, 0.6);
+        }
+
+        #btnNao {
+            background-color: #f0f0f0;
+            color: #777;
+            transition: top 0.2s ease, left 0.2s ease, transform 0.1s;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="icon">🩺✨</div>
+        <h1>Para a futura enfermeira mais linda...</h1>
+        <p>Depois de sobreviver à correria dos prazos da FAEU e para comemorar seus novos cursos, eu queria te fazer um convite...</p>
+        
+        <div class="highlight">
+            <strong>Topa comigo no dia 20? Vai eu, você e o Ravi.🧺🍎</strong>
+        </div>
+        
+        <div class="btn-container">
+            <button id="btnSim" onclick="aceitou()">SIM!</button>
+            <button id="btnNao" onmouseover="fuga()" onclick="fuga()" ontouchstart="fuga()">NÃO</button>
+        </div>
+    </div>
+
+    <script>
+        function fuga() {
+            const btnNao = document.getElementById('btnNao');
+            
+            // Garante margem de segurança das bordas da tela
+            const padding = 20;
+            const maxX = window.innerWidth - btnNao.offsetWidth - padding;
+            const maxY = window.innerHeight - btnNao.offsetHeight - padding;
+            
+            const x = Math.max(padding, Math.floor(Math.random() * maxX));
+            const y = Math.max(padding, Math.floor(Math.random() * maxY));
+            
+            btnNao.style.position = 'fixed';
+            btnNao.style.left = `${x}px`;
+            btnNao.style.top = `${y}px`;
+        }
+
+        function aceitou() {
+            const numero = "5597984275515"; // DDD 97 + número com DDI 55 do Brasil
+            const mensagem = encodeURIComponent("Eu aceito! O Ravi e eu vamos amar o piquenique dia 20 🥰");
+            window.location.href = `https://wa.me/${numero}?text=${mensagem}`;
+        }
+    </script>
+
+</body>
+</html>
