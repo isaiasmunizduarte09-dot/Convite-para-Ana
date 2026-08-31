@@ -105,8 +105,8 @@
         #btnNao {
             background-color: #f0f0f0;
             color: #777;
-            transition: top 0.2s ease, left 0.2s ease, transform 0.1s;
-            z-index: 100;
+            transition: top 0.25s ease, left 0.25s ease;
+            z-index: 9999;
         }
     </style>
 </head>
@@ -116,7 +116,7 @@
         <div class="icon">🩺✨</div>
         <h1>Para a futura enfermeira mais linda...</h1>
         <p>Eu sei que a barra está pesada demais agora, com tantos problemas acumulados, essa questão da família, 
-            da justiça e da polícia te esgotando a esse ponto de querer sumir. Mas eu tô aqui com você pra te lembrar que você não precisa carregar o mundo sozinha. Respira fundo, confia em Deus, e conte comigo pra tudo!! (Tudo que não envolva dinheiro😅).</p>
+            da justiça e da polícia te esgotando a esse ponto de querer sumir. Mas eu tô aqui com você pra te lembrar que você não precisa carregar o mundo sozinha. Respira fundo, confia em Deus, e conte comigo pra tudo.</p>
         <p>Depois de sobreviver à correria e para comemorar os nossos novos cursos, eu queria te fazer um convite...</p>
         
         <div class="highlight">
@@ -125,24 +125,34 @@
         
         <div class="btn-container">
             <button id="btnSim" onclick="aceitou()">SIM!</button>
-            <button id="btnNao" onmouseover="fuga()" onclick="fuga()" ontouchstart="fuga()">NÃO</button>
+            <button id="btnNao" onmouseover="fuga(event)" onclick="fuga(event)" ontouchstart="fuga(event)">NÃO</button>
         </div>
     </div>
 
     <script>
-        function fuga() {
+        function fuga(e) {
+            if (e) e.preventDefault();
             const btnNao = document.getElementById('btnNao');
-            const padding = 20;
             
-            const maxX = window.innerWidth - btnNao.offsetWidth - padding;
-            const maxY = window.innerHeight - btnNao.offsetHeight - padding;
+            // Largura e altura do botão
+            const btnWidth = btnNao.offsetWidth || 80;
+            const btnHeight = btnNao.offsetHeight || 40;
             
-            const x = Math.max(padding, Math.floor(Math.random() * maxX));
-            const y = Math.max(padding, Math.floor(Math.random() * maxY));
+            // Margem de segurança das bordas da tela
+            const padding = 30;
             
+            // Área máxima disponível
+            const maxX = window.innerWidth - btnWidth - padding;
+            const maxY = window.innerHeight - btnHeight - padding;
+            
+            // Gera posições válidas dentro da janela do navegador
+            let randomX = Math.floor(Math.random() * (maxX - padding)) + padding;
+            let randomY = Math.floor(Math.random() * (maxY - padding)) + padding;
+            
+            // Garante que o botão fique sempre visível acima de tudo
             btnNao.style.position = 'fixed';
-            btnNao.style.left = `${x}px`;
-            btnNao.style.top = `${y}px`;
+            btnNao.style.left = randomX + 'px';
+            btnNao.style.top = randomY + 'px';
         }
 
         function aceitou() {
