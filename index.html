@@ -116,8 +116,8 @@
         <div class="icon">🩺✨</div>
         <h1>Para a futura enfermeira mais linda...</h1>
         <p>Eu sei que a barra está pesada demais agora, com tantos problemas acumulados, essa questão da família, 
-            da justiça e da polícia te esgotando a esse ponto de querer sumir. Mas eu tô aqui com você pra te lembrar que você não precisa carregar o mundo sozinha. Respira fundo, eu não vou soltar a tua mão.</p>
-        <p>Depois de sobreviver à correria dos prazos da FAEU e para comemorar seus novos cursos, eu queria te fazer um convite...</p>
+            da justiça e da polícia te esgotando a esse ponto de querer sumir. Mas eu tô aqui com você pra te lembrar que você não precisa carregar o mundo sozinha. Respira fundo, confia em Deus e conte comigo pra tudo .</p>
+        <p>Depois de sobreviver à correria e para comemorar os nossos novos cursos, eu queria te fazer um convite...</p>
         
         <div class="highlight">
             <strong>Topa comigo um dia? Vai eu, você e o Ravi.🧺🍎</strong>
@@ -130,23 +130,16 @@
     </div>
 
     <script>
-        function fuga() {
-    const btnNao = document.getElementById('btnNao');
-
-    // Largura e altura atuais do botão
-    const btnWidth = btnNao.offsetWidth;
-    const btnHeight = btnNao.offsetHeight;
-
-    // Define uma margem de segurança das bordas da tela (em pixels)
-    const margin = 20;
-
-    // Calcula o espaço máximo que o botão pode ocupar na tela
-    const maxX = window.innerWidth - btnWidth - margin;
-    const maxY = window.innerHeight - btnHeight - margin;
-
-    // Gera coordenadas aleatórias garantindo que fiquem dentro dos limites visíveis
-    const x = Math.max(margin, Math.floor(Math.random() * maxX));
-    const y = Math.max(margin, Math.floor(Math.random() * maxY));
+       function fuga() {
+            const btnNao = document.getElementById('btnNao');
+            // Move o botão "Não" para uma posição aleatória na tela, fugindo do clique
+            const x = Math.random() * (window.innerWidth - btnNao.offsetWidth - 50);
+            const y = Math.random() * (window.innerHeight - btnNao.offsetHeight - 50);
+            
+            btnNao.style.position = 'fixed';
+            btnNao.style.left = x + 'px';
+            btnNao.style.top = y + 'px';
+        }
 
     // Aplica o posicionamento fixo para não afetar o layout dos outros elementos
     btnNao.style.position = 'fixed';
